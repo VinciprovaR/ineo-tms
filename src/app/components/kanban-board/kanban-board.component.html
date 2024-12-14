@@ -7,20 +7,27 @@
   (sortDirectionChange)="onSortDirectionChange($event)"
 ></app-filter>
 
-@if(taskService.tasks().length === 0){
-<div class="skeleton-loader">Loading...</div>
-}
+<!-- Loader displayed while tasks are being loaded -->
 
+<!-- Kanban board layout with columns for each task status -->
 <div class="kanban-board grid grid-cols-1 md:grid-cols-3 gap-4">
-  @for(taskByStatus of tasksByStatus(); track trackByTaskId){
+  <!-- Loop through each status and display the tasks associated with it -->
+  @for(taskByStatus of tasksByStatus(); track taskByStatus.status){
   <div class="p-4 bg-gray-100 rounded flex flex-col">
+    <!-- Display status header -->
     <h2 class="font-bold text-lg mb-4 text-center md:text-left">
       {{ taskByStatus.status }}
     </h2>
 
+    <!-- Display message if no tasks are available for this status -->
     @if(taskByStatus.tasks.length === 0){
-    <p class="text-gray-500 text-center md:text-left">No tasks available</p>
-    } @for(task of filterAndSortTasks(taskByStatus.tasks); track trackByTaskId){
+    <app-skeleton-loader></app-skeleton-loader>
+    <!-- <p class="text-gray-500 text-center md:text-left">No tasks available</p> -->
+    }
+
+    <!-- Loop through each task and display the task component -->
+    @for(task of filterAndSortTasks(taskByStatus.tasks); track task.id){
+
     <app-task
       [task]="task"
       (delete)="deleteTask($event)"

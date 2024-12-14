@@ -7,14 +7,8 @@
       "status": "To Do"
     },
     {
-      "id": "3",
-      "title": "Test the app",
-      "description": "Test the entire system",
-      "status": "Done"
-    },
-    {
       "id": "3a56",
-      "title": "eee",
+      "title": "eeeEEE",
       "description": "fgggg\n",
       "status": "In Progress"
     },
@@ -32,9 +26,15 @@
     },
     {
       "id": "98ea",
-      "title": "altra todossss",
+      "title": "CIAO",
       "description": "altra todoss -> in progres",
       "status": "In Progress"
+    },
+    {
+      "id": "2cdb",
+      "title": "Refractor componenti",
+      "description": "fare un refractor dei componenti",
+      "status": "To Do"
     }
   ]
 }
