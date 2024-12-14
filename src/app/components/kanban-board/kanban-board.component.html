@@ -1,13 +1,29 @@
-@if (taskService.tasks().length === 0) {
-<div class="skeleton-loader">Loading...</div>
-} @for ( taskByStatus of tasksByStatus(); track taskByStatus.status) {
-<div class="p-4 bg-gray-100 rounded">
-  <h2>{{ taskByStatus.status }}</h2>
+<app-filter
+  [filterQuery]="filterQuery()"
+  [sortKey]="sortKey()"
+  [sortDirection]="sortDirection()"
+  (filterQueryChange)="onFilterQueryChange($event)"
+  (sortKeyChange)="onSortKeyChange($event)"
+  (sortDirectionChange)="onSortDirectionChange($event)"
+></app-filter>
 
-  @if (taskByStatus.tasks.length === 0) {
-  <p>No tasks available</p>
-  } @for (task of taskByStatus.tasks; track task ) {
-  <app-task [task]="task" (delete)="deleteTask($event)"></app-task>
+@if(taskService.tasks().length === 0){
+<div class="skeleton-loader">Loading...</div>
+} @for(taskByStatus of tasksByStatus(); track trackByTaskId){
+<div class="p-4 bg-gray-100 rounded">
+  <h2 class="font-bold text-lg mb-4">{{ taskByStatus.status }}</h2>
+  @if(taskByStatus.tasks.length === 0){
+  <p class="text-gray-500">No tasks available</p>
   }
+
+  <app-task
+    *ngFor="
+      let task of filterAndSortTasks(taskByStatus.tasks);
+      trackBy: trackByTaskId
+    "
+    [task]="task"
+    (delete)="deleteTask($event)"
+    (update)="updateTask($event)"
+  ></app-task>
 </div>
 }

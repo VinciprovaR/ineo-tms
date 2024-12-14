@@ -1,6 +1,7 @@
 import { Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Task } from '../models/task.model';
+import { Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -28,10 +29,10 @@ export class TaskService {
     });
   }
 
-  updateTask(task: Task): void {
-    this.http.put<Task>(`${this.apiUrl}/${task.id}`, task).subscribe(() => {
-      this.loadTasks();
-    });
+  updateTask(task: Task): Observable<Task> {
+    return this.http.put<Task>(`${this.apiUrl}/${task.id}`, task).pipe(
+      tap(() => this.loadTasks()) // Ricarica i task
+    );
   }
 
   deleteTask(id: number): void {
