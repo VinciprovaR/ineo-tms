@@ -9,21 +9,24 @@
 
 @if(taskService.tasks().length === 0){
 <div class="skeleton-loader">Loading...</div>
-} @for(taskByStatus of tasksByStatus(); track trackByTaskId){
-<div class="p-4 bg-gray-100 rounded">
-  <h2 class="font-bold text-lg mb-4">{{ taskByStatus.status }}</h2>
-  @if(taskByStatus.tasks.length === 0){
-  <p class="text-gray-500">No tasks available</p>
-  }
-
-  <app-task
-    *ngFor="
-      let task of filterAndSortTasks(taskByStatus.tasks);
-      trackBy: trackByTaskId
-    "
-    [task]="task"
-    (delete)="deleteTask($event)"
-    (update)="updateTask($event)"
-  ></app-task>
-</div>
 }
+
+<div class="kanban-board grid grid-cols-1 md:grid-cols-3 gap-4">
+  @for(taskByStatus of tasksByStatus(); track trackByTaskId){
+  <div class="p-4 bg-gray-100 rounded flex flex-col">
+    <h2 class="font-bold text-lg mb-4 text-center md:text-left">
+      {{ taskByStatus.status }}
+    </h2>
+
+    @if(taskByStatus.tasks.length === 0){
+    <p class="text-gray-500 text-center md:text-left">No tasks available</p>
+    } @for(task of filterAndSortTasks(taskByStatus.tasks); track trackByTaskId){
+    <app-task
+      [task]="task"
+      (delete)="deleteTask($event)"
+      (update)="updateTask($event)"
+    ></app-task>
+    }
+  </div>
+  }
+</div>

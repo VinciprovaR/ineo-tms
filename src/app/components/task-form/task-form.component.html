@@ -1,4 +1,12 @@
-<form [formGroup]="taskForm" (ngSubmit)="addTask()" class="space-y-6">
+<form
+  [formGroup]="taskForm"
+  (ngSubmit)="addTask()"
+  class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md space-y-6"
+>
+  <h1 class="text-xl font-bold text-center md:text-left mb-6">
+    Create a New Task
+  </h1>
+
   <!-- Campo Titolo -->
   <div>
     <label for="title" class="block text-sm font-medium text-gray-700"
@@ -8,7 +16,7 @@
       id="title"
       type="text"
       formControlName="title"
-      class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500"
+      class="mt-1 block w-full rounded-lg border border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 px-4 py-2"
       placeholder="Task Title"
     />
     @if (title?.invalid && title?.touched) {
@@ -30,7 +38,7 @@
     <textarea
       id="description"
       formControlName="description"
-      class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500"
+      class="mt-1 block w-full rounded-lg border border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 px-4 py-2"
       placeholder="Task Description"
     ></textarea>
     @if (description?.invalid && description?.touched) {
@@ -52,7 +60,7 @@
     <select
       id="status"
       formControlName="status"
-      class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500"
+      class="mt-1 block w-full rounded-lg border border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 px-4 py-2"
     >
       @for ( status of taskStatuses; track status) {
       <option [value]="status">{{ status }}</option>
