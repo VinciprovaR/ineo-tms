@@ -1,0 +1,13 @@
+@if (taskService.tasks().length === 0) {
+<div class="skeleton-loader">Loading...</div>
+} @for ( taskByStatus of tasksByStatus(); track taskByStatus.status) {
+<div class="p-4 bg-gray-100 rounded">
+  <h2>{{ taskByStatus.status }}</h2>
+
+  @if (taskByStatus.tasks.length === 0) {
+  <p>No tasks available</p>
+  } @for (task of taskByStatus.tasks; track task ) {
+  <app-task [task]="task" (delete)="deleteTask($event)"></app-task>
+  }
+</div>
+}

@@ -1,0 +1,63 @@
+<form [formGroup]="taskForm" (ngSubmit)="addTask()">
+  <!-- Campo Titolo -->
+  <div>
+    <label for="title" class="block font-medium">Title</label>
+    <input
+      id="title"
+      type="text"
+      formControlName="title"
+      class="input"
+      placeholder="Task Title"
+    />
+
+    @if (title?.invalid && title?.touched) {
+    <div class="text-red-500 text-sm">
+      @if (title?.errors?.['required']) {
+      <p>Title is required</p>
+      } @if (title?.errors?.['minlength']) {
+      <p>Title must be at least 3 characters</p>
+      }
+    </div>
+    }
+  </div>
+
+  <!-- Campo Descrizione -->
+  <div class="mt-4">
+    <label for="description" class="block font-medium">Description</label>
+    <textarea
+      id="description"
+      formControlName="description"
+      class="textarea"
+      placeholder="Task Description"
+    ></textarea>
+
+    @if (description?.invalid && description?.touched) {
+    <div class="text-red-500 text-sm">
+      @if (description?.errors?.['required']) {
+      <p>Description is required</p>
+      } @if (description?.errors?.['minlength']) {
+      <p>Description must be at least 5 characters</p>
+      }
+    </div>
+    }
+  </div>
+
+  <!-- Campo Stato -->
+  <div class="mt-4">
+    <label for="status" class="block font-medium">Status</label>
+    <select id="status" formControlName="status" class="input">
+      @for ( status of taskStatuses; track status) {
+      <option [value]="status">{{ status }}</option>
+      }
+    </select>
+  </div>
+
+  <!-- Pulsante di invio -->
+  <button
+    type="submit"
+    [disabled]="taskForm.invalid"
+    class="btn btn-primary mt-4"
+  >
+    Add Task
+  </button>
+</form>

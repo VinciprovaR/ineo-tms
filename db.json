@@ -1,0 +1,40 @@
+{
+  "tasks": [
+    {
+      "id": "1",
+      "title": "Learn Angular",
+      "description": "Start learning Angular basics",
+      "status": "To Do"
+    },
+    {
+      "id": "3",
+      "title": "Test the app",
+      "description": "Test the entire system",
+      "status": "Done"
+    },
+    {
+      "id": "3a56",
+      "title": "eee",
+      "description": "fgggg\n",
+      "status": "In Progress"
+    },
+    {
+      "id": "f545",
+      "title": "uuf",
+      "description": "uutfdfd",
+      "status": "In Progress"
+    },
+    {
+      "id": "af77",
+      "title": "Nuova todo",
+      "description": "todo todo todo",
+      "status": "To Do"
+    },
+    {
+      "id": "98ea",
+      "title": "altra todo",
+      "description": "altra todo",
+      "status": "To Do"
+    }
+  ]
+}
