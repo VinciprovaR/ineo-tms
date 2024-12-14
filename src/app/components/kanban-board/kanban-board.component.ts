@@ -24,7 +24,7 @@ import { SkeletonLoaderComponent } from '../skeleton-loader/skeleton-loader.comp
 export class KanbanBoardComponent {
   private taskService = inject(TaskService);
   tasks$ = this.taskService.tasks$;
-
+  isLoading$ = this.taskService.isLoading$;
   statuses = Object.values(TaskStatus);
   filterQuery = signal<string>('');
   sortKey = signal<string>('title');

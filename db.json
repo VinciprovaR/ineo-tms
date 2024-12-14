@@ -25,12 +25,6 @@
       "status": "To Do"
     },
     {
-      "id": "98ea",
-      "title": "CIAO",
-      "description": "altra todoss -> in progres",
-      "status": "In Progress"
-    },
-    {
       "id": "2cdb",
       "title": "Refractor componenti",
       "description": "fare un refractor dei componenti",

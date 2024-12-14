@@ -20,10 +20,11 @@
     </h2>
 
     <!-- Display message if no tasks are available for this status -->
-    @if(taskByStatus.tasks.length === 0){
+    @if(taskByStatus.tasks.length === 0){ @if(isLoading$()){
     <app-skeleton-loader></app-skeleton-loader>
-    <!-- <p class="text-gray-500 text-center md:text-left">No tasks available</p> -->
-    }
+    } @else {
+    <p class="text-gray-500 text-center md:text-left">No tasks available</p>
+    } }
 
     <!-- Loop through each task and display the task component -->
     @for(task of filterAndSortTasks(taskByStatus.tasks); track task.id){
