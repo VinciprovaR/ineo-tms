@@ -65,7 +65,11 @@
   <!-- View Mode -->
   @else {
   <!-- Display task title -->
-  <h3 class="font-bold text-lg break-words">{{ task.title }}</h3>
+  <h3 class="font-bold text-lg break-words">
+    <a [routerLink]="['/tasks', task.id]" class="text-blue-500 hover:underline">
+      {{ task.title }}
+    </a>
+  </h3>
 
   <!-- Display task description -->
   <p class="text-gray-700 mt-2 break-words">{{ task.summary }}</p>

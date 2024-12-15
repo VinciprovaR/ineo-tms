@@ -13,6 +13,7 @@ import { OpenNewTaskFormComponent } from './components/open-new-task-form/open-n
     KanbanBoardComponent,
     SidebarComponent,
     OpenNewTaskFormComponent,
+    RouterOutlet,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

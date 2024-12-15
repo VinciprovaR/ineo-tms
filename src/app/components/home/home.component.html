@@ -1,0 +1,11 @@
+<!-- Main title of the Task Management System -->
+<h1 class="text-center text-3xl font-bold mb-4">Task Management System</h1>
+
+<!-- Component to open the sidebar for creating a new task -->
+<app-open-new-task-form [appSidebar]="sidebar"></app-open-new-task-form>
+
+<!-- Kanban Board displaying tasks grouped by status -->
+<app-kanban-board></app-kanban-board>
+
+<!-- Slide-in Sidebar containing the Task Form -->
+<app-sidebar #sidebar></app-sidebar>
