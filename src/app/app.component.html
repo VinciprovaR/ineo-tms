@@ -2,17 +2,12 @@
   <!-- Main title of the Task Management System -->
   <h1 class="text-center text-3xl font-bold mb-4">Task Management System</h1>
 
-  <!-- Button to open the sidebar for creating a new task -->
-  <button
-    (click)="appSidebar.toggleTaskForm()"
-    class="bg-blue-500 text-white px-4 py-2 rounded-lg mb-4"
-  >
-    + Create New Task
-  </button>
+  <!-- Component to open the sidebar for creating a new task -->
+  <app-open-new-task-form [appSidebar]="sidebar"></app-open-new-task-form>
 
   <!-- Kanban Board displaying tasks grouped by status -->
   <app-kanban-board></app-kanban-board>
 </div>
 
 <!-- Slide-in Sidebar containing the Task Form -->
-<app-sidebar></app-sidebar>
+<app-sidebar #sidebar></app-sidebar>

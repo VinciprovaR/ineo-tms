@@ -1,0 +1,46 @@
+.kanban-column {
+  max-height: 100%;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.kanban-grid {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.kanban-column.collapsed {
+  height: 60px;
+}
+
+.kanban-header {
+  max-height: 60px;
+  font-weight: bold;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.kanban-body {
+  transition: all 0.3s ease-in-out;
+}
+
+.collapse-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.kanban-header.bg-to-do {
+  @apply bg-blue-500;
+}
+
+.kanban-header.bg-in-prg {
+  @apply bg-red-500;
+}
+
+.kanban-header.bg-in-testing {
+  @apply bg-yellow-500;
+}
+
+.kanban-header.bg-done {
+  @apply bg-green-500;
+}

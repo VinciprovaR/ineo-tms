@@ -1,40 +1,69 @@
-<app-filter
-  [filterQuery]="filterQuery()"
-  [sortKey]="sortKey()"
-  [sortDirection]="sortDirection()"
-  (filterQueryChange)="onFilterQueryChange($event)"
-  (sortKeyChange)="onSortKeyChange($event)"
-  (sortDirectionChange)="onSortDirectionChange($event)"
-></app-filter>
+<div class="space-y-8">
+  <div>
+    <app-filter
+      [filterQuery]="filterQuery()"
+      [sortKey]="sortKey()"
+      [sortDirection]="sortDirection()"
+      (filterQueryChange)="onFilterQueryChange($event)"
+      (sortKeyChange)="onSortKeyChange($event)"
+      (sortDirectionChange)="onSortDirectionChange($event)"
+    ></app-filter>
+  </div>
+  <!-- Kanban board layout with responsive columns -->
+  <div class="kanban-board kanban-grid grid gap-4">
+    @for(taskByStatus of tasksByStatus(); track taskByStatus.status){
+    <div
+      [ngClass]="{ collapsed: isCollapsed(taskByStatus.status) }"
+      class="kanban-column relative bg-white rounded-xl shadow-lg flex flex-col transition-all duration-300"
+    >
+      <!-- Header della colonna -->
+      <div
+        (click)="toggleCollapse(taskByStatus.status)"
+        class="kanban-header cursor-pointer p-4 rounded-t-xl flex items-center justify-between text-white"
+        [ngClass]="getColumnHeaderColor(taskByStatus.status)"
+      >
+        <h2 class="font-bold text-lg">
+          {{ taskByStatus.status }}
+          <span
+            class="ml-2 bg-gray-900 text-white text-sm font-semibold rounded-full px-2 py-1"
+          >
+            {{ taskByStatus.tasks.length }}
+          </span>
+        </h2>
 
-<!-- Loader displayed while tasks are being loaded -->
+        <!-- Icona di collapse/expand -->
+        <button class="collapse-btn">
+          @if(isCollapsed(taskByStatus.status)) {
+          <i class="fas fa-chevron-right"></i>
+          } @else {
+          <i class="fas fa-chevron-down"></i>
+          }
+        </button>
+      </div>
 
-<!-- Kanban board layout with columns for each task status -->
-<div class="kanban-board grid grid-cols-1 md:grid-cols-3 gap-4">
-  <!-- Loop through each status and display the tasks associated with it -->
-  @for(taskByStatus of tasksByStatus(); track taskByStatus.status){
-  <div class="p-4 bg-gray-100 rounded flex flex-col">
-    <!-- Display status header -->
-    <h2 class="font-bold text-lg mb-4 text-center md:text-left">
-      {{ taskByStatus.status }}
-    </h2>
+      <!-- Corpo della colonna (imploso/esploso) -->
+      @if(!isCollapsed(taskByStatus.status)) {
+      <div class="kanban-body p-4 space-y-4">
+        <!-- Skeleton loader o messaggio di "nessun task" -->
+        @if(taskByStatus.tasks.length === 0){ @if(isLoading$()){
+        <app-skeleton-loader></app-skeleton-loader>
+        } @else {
+        <p class="text-gray-500 text-center md:text-left">No tasks available</p>
+        } }
 
-    <!-- Display message if no tasks are available for this status -->
-    @if(taskByStatus.tasks.length === 0){ @if(isLoading$()){
-    <app-skeleton-loader></app-skeleton-loader>
-    } @else {
-    <p class="text-gray-500 text-center md:text-left">No tasks available</p>
-    } }
-
-    <!-- Loop through each task and display the task component -->
-    @for(task of filterAndSortTasks(taskByStatus.tasks); track task.id){
-
-    <app-task
-      [task]="task"
-      (delete)="deleteTask($event)"
-      (update)="updateTask($event)"
-    ></app-task>
+        <!-- Lista di task -->
+        @for(task of filterAndSortTasks(taskByStatus.tasks); track task.id){
+        <div class="space-y-2">
+          <app-task
+            [task]="task"
+            (delete)="deleteTask($event)"
+            (update)="updateTask($event)"
+          ></app-task>
+        </div>
+        }
+      </div>
+      }
+    </div>
     }
   </div>
-  }
 </div>

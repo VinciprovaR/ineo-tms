@@ -1,8 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, computed, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { TaskStatus } from '../../models/task-status.enum';
-import { Task } from '../../models/task.model';
+import { Task, TaskStatus, TaskStatusClass } from '../../models/task.model';
 import { TaskService } from '../../services/task.service';
 import { TaskComponent } from '../task/task.component';
 import { FilterComponent } from '../filter/filter.component';
@@ -29,6 +28,7 @@ export class KanbanBoardComponent {
   filterQuery = signal<string>('');
   sortKey = signal<string>('title');
   sortDirection = signal<'asc' | 'desc'>('asc');
+  collapsedColumns: { [key: string]: boolean } = {};
 
   tasksByStatus = computed(() =>
     this.statuses.map((status) => ({
@@ -139,5 +139,17 @@ export class KanbanBoardComponent {
    */
   onSortDirectionChange(direction: 'asc' | 'desc'): void {
     this.sortDirection.set(direction);
+  }
+
+  toggleCollapse(status: string) {
+    this.collapsedColumns[status] = !this.collapsedColumns[status];
+  }
+
+  isCollapsed(status: string): boolean {
+    return this.collapsedColumns[status] || false;
+  }
+
+  getColumnHeaderColor(status: string): string {
+    return TaskStatusClass[status] || 'bg-gray-500';
   }
 }

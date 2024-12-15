@@ -1,6 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Task } from '../../models/task.model';
-import { TaskStatus } from '../../models/task-status.enum';
+import { Task, TaskStatus } from '../../models/task.model';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -19,24 +18,20 @@ export class TaskComponent {
   editableTask!: Task;
   statuses = Object.values(TaskStatus);
 
-  // Abilita la modalità modifica
   enableEdit(): void {
     this.isEditing = true;
-    this.editableTask = { ...this.task }; // Crea una copia del task per non modificarlo direttamente
+    this.editableTask = { ...this.task };
   }
 
-  // Salva le modifiche
   saveEdit(): void {
     this.update.emit(this.editableTask);
     this.isEditing = false;
   }
 
-  // Annulla le modifiche
   cancelEdit(): void {
     this.isEditing = false;
   }
 
-  // Elimina il task
   deleteTask(): void {
     this.delete.emit(this.task.id);
   }

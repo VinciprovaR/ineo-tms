@@ -6,7 +6,7 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { TaskService } from '../../services/task.service';
-import { TaskStatus } from '../../models/task-status.enum';
+import { TaskStatus } from '../../models/task.model';
 
 @Component({
   standalone: true,
