@@ -15,6 +15,7 @@ export const TaskStatusClass: any = {
 export interface Task {
   id: number;
   title: string;
+  summary: string;
   description: string;
   status: TaskStatus;
 }

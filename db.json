@@ -3,44 +3,16 @@
     {
       "id": "1",
       "title": "Learn Angular",
-      "description": "Start learning Angular basics",
+      "summary": "short description",
+      "description": "UUUUUUU",
       "status": "To Do"
     },
     {
-      "id": "3a56",
-      "title": "eeeEEE",
-      "description": "fggggfgggg\nfgggg\nfgggg\nfgggg\nfgggg\nfgggg\nfgggg fgggg\nfgggg\nfgggg\nfgggg\nfgggg\n\n\nfggggfgggg\nfgggg\nfgggg\nfgggg\nfgggg\nfgggg\nfgggg fgggg\nfgggg\nfgggg\nfgggg\nfgggg\n\nfggggfgggg\nfgggg\nfgggg\nfgggg\nfgggg\nfgggg\nfgggg fgggg\nfgggg\nfgggg\nfgggg\nfgggg\n\n\n\n",
-      "status": "In Progress"
-    },
-    {
-      "id": "f545",
-      "title": "uuf",
-      "description": "uutfdfd",
-      "status": "In Progress"
-    },
-    {
-      "id": "af77",
-      "title": "Nuova todo",
-      "description": "todo todo todo",
+      "id": "b756",
+      "title": "Title",
+      "summary": "shooooort",
+      "description": "saijfaiopfjapioasoafj aspiofafpiofjasp0 oapsifhaoifhaso0if asoifasoifhas oasifh",
       "status": "To Do"
-    },
-    {
-      "id": "297b",
-      "title": "aaaaaa",
-      "description": "aaaaaa",
-      "status": "Done"
-    },
-    {
-      "id": "58a8",
-      "title": "Ciao ciao",
-      "description": "sdogihsdogisdoigs",
-      "status": "Done"
-    },
-    {
-      "id": "bd3e",
-      "title": "testing!!!",
-      "description": "safgasfazas",
-      "status": "In Testing"
     }
   ]
 }

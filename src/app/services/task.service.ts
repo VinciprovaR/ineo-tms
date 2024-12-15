@@ -26,7 +26,7 @@ export class TaskService {
     this.http
       .get<Task[]>(this.apiUrl)
       .pipe(
-        delay(this.isInitialLoad ? 30 : 0),
+        delay(this.isInitialLoad ? 3000 : 0),
         finalize(() => {
           this.isLoading$.set(false);
           this.isInitialLoad = false;

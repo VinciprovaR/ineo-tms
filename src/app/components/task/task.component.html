@@ -9,7 +9,7 @@
   />
   <!-- Textarea for task description -->
   <textarea
-    [(ngModel)]="editableTask.description"
+    [(ngModel)]="editableTask.summary"
     class="block w-full rounded-lg border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 mb-2"
   ></textarea>
 
@@ -46,7 +46,7 @@
   <h3 class="font-bold text-lg">{{ task.title }}</h3>
 
   <!-- Display task description -->
-  <p class="text-gray-700 mt-2">{{ task.description }}</p>
+  <p class="text-gray-700 mt-2">{{ task.summary }}</p>
 
   <!-- Display task status -->
   <p class="text-sm text-gray-500 mt-2">

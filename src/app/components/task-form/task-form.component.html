@@ -1,12 +1,8 @@
 <form
   [formGroup]="taskForm"
   (ngSubmit)="addTask()"
-  class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md space-y-6"
+  class="max-w-lg w-full mx-auto bg-white px-6 py-4 rounded-lg shadow-md space-y-6 overflow-y-auto h-screen sm:h-auto"
 >
-  <h1 class="text-xl font-bold text-center md:text-left mb-6">
-    Create a New Task
-  </h1>
-
   <!-- Title Field -->
   <div>
     <label for="title" class="block text-sm font-medium text-gray-700"
@@ -25,6 +21,32 @@
       <p>Title is required</p>
       } @if (title?.errors?.['minlength']) {
       <p>Title must be at least 3 characters</p>
+      } @if (title?.errors?.['maxlength']) {
+      <p>Title must be a maximum of 50 characters</p>
+      }
+    </div>
+    }
+  </div>
+
+  <!-- Summary Field -->
+  <div>
+    <label for="summary" class="block text-sm font-medium text-gray-700"
+      >Summary</label
+    >
+    <textarea
+      id="summary"
+      formControlName="summary"
+      class="mt-1 block w-full rounded-lg border border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 px-4 py-2 resize-none"
+      placeholder="Task Short Summary"
+    ></textarea>
+    @if (summary?.invalid && summary?.touched) {
+    <div class="text-red-500 text-sm mt-2">
+      @if (summary?.errors?.['required']) {
+      <p>Summary is required</p>
+      } @if (summary?.errors?.['minlength']) {
+      <p>Summary must be at least 5 characters</p>
+      } @if (summary?.errors?.['maxlength']) {
+      <p>Summary must be a maximum of 80 characters</p>
       }
     </div>
     }
@@ -38,8 +60,8 @@
     <textarea
       id="description"
       formControlName="description"
-      class="mt-1 block w-full rounded-lg border border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 px-4 py-2"
-      placeholder="Task Description"
+      class="mt-1 block w-full rounded-lg border border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 px-4 py-2 resize-none"
+      placeholder="Task Detailed Description"
     ></textarea>
     @if (description?.invalid && description?.touched) {
     <div class="text-red-500 text-sm mt-2">
@@ -47,6 +69,8 @@
       <p>Description is required</p>
       } @if (description?.errors?.['minlength']) {
       <p>Description must be at least 5 characters</p>
+      } @if (description?.errors?.['maxlength']) {
+      <p>Description must be a maximum of 500 characters</p>
       }
     </div>
     }
@@ -62,7 +86,7 @@
       formControlName="status"
       class="mt-1 block w-full rounded-lg border border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 px-4 py-2"
     >
-      @for ( status of taskStatuses; track status) {
+      @for (status of taskStatuses; track status) {
       <option [value]="status">{{ status }}</option>
       }
     </select>

@@ -22,8 +22,30 @@ export class TaskFormComponent {
   constructor(private fb: FormBuilder, private taskService: TaskService) {
     // Initialize the form with default values and validators for each field
     this.taskForm = this.fb.group({
-      title: ['', [Validators.required, Validators.minLength(3)]],
-      description: ['', [Validators.required, Validators.minLength(5)]],
+      title: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(50),
+        ],
+      ],
+      summary: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(5),
+          Validators.maxLength(80),
+        ],
+      ],
+      description: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(5),
+          Validators.maxLength(500),
+        ],
+      ],
       status: [TaskStatus.TO_DO, Validators.required],
     });
   }
@@ -52,6 +74,16 @@ export class TaskFormComponent {
    */
   get title() {
     return this.taskForm.get('title');
+  }
+
+  /**
+   * Getter for the summary form control.
+   * Used to access the 'summary' form control directly from the template.
+   *
+   * @returns The form control for the 'summary' field.
+   */
+  get summary() {
+    return this.taskForm.get('summary');
   }
 
   /**
