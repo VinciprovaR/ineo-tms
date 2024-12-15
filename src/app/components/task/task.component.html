@@ -6,12 +6,33 @@
     type="text"
     [(ngModel)]="editableTask.title"
     class="block w-full rounded-lg border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 mb-2"
+    placeholder="Enter task title"
   />
-  <!-- Textarea for task description -->
+  @if (!isValidTitle()) {
+  <div class="text-red-500 text-sm mt-2">
+    @if (editableTask.title.length < 3) {
+    <p>Title must be at least 3 characters</p>
+    } @if (editableTask.title.length > 50) {
+    <p>Title must be a maximum of 50 characters</p>
+    }
+  </div>
+  }
+
+  <!-- Textarea for task summary -->
   <textarea
     [(ngModel)]="editableTask.summary"
     class="block w-full rounded-lg border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 mb-2"
+    placeholder="Enter task summary"
   ></textarea>
+  @if (!isValidSummary()) {
+  <div class="text-red-500 text-sm mt-2">
+    @if (editableTask.summary.length < 5) {
+    <p>Summary must be at least 5 characters</p>
+    } @if (editableTask.summary.length > 80) {
+    <p>Summary must be a maximum of 80 characters</p>
+    }
+  </div>
+  }
 
   <!-- Dropdown for selecting task status -->
   <select
@@ -27,7 +48,8 @@
   <div class="flex space-x-2">
     <button
       (click)="saveEdit()"
-      class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg"
+      [disabled]="!isValidTitle() || !isValidSummary()"
+      class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
     >
       Save
     </button>
@@ -43,10 +65,10 @@
   <!-- View Mode -->
   @else {
   <!-- Display task title -->
-  <h3 class="font-bold text-lg">{{ task.title }}</h3>
+  <h3 class="font-bold text-lg break-words">{{ task.title }}</h3>
 
   <!-- Display task description -->
-  <p class="text-gray-700 mt-2">{{ task.summary }}</p>
+  <p class="text-gray-700 mt-2 break-words">{{ task.summary }}</p>
 
   <!-- Display task status -->
   <p class="text-sm text-gray-500 mt-2">

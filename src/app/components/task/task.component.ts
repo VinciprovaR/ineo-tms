@@ -24,8 +24,10 @@ export class TaskComponent {
   }
 
   saveEdit(): void {
-    this.update.emit(this.editableTask);
-    this.isEditing = false;
+    if (this.isValidTitle() && this.isValidSummary()) {
+      this.update.emit(this.editableTask);
+      this.isEditing = false;
+    }
   }
 
   cancelEdit(): void {
@@ -34,5 +36,27 @@ export class TaskComponent {
 
   deleteTask(): void {
     this.delete.emit(this.task.id);
+  }
+
+  /**
+   * Validazione del titolo
+   * @returns true se il titolo è valido
+   */
+  isValidTitle(): boolean {
+    return (
+      this.editableTask?.title?.length >= 3 &&
+      this.editableTask?.title?.length <= 50
+    );
+  }
+
+  /**
+   * Validazione del summary (descrizione)
+   * @returns true se il summary è valido
+   */
+  isValidSummary(): boolean {
+    return (
+      this.editableTask?.summary?.length >= 5 &&
+      this.editableTask?.summary?.length <= 80
+    );
   }
 }
