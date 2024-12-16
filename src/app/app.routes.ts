@@ -8,6 +8,14 @@ export const routes: Routes = [
     title: 'Home',
   },
   {
+    path: 'dashboard',
+    loadComponent: () =>
+      import('./components/dashboard/dashboard.component').then(
+        (m) => m.DashboardComponent
+      ),
+    title: 'Dashboard',
+  },
+  {
     path: 'tasks/:taskId',
     loadComponent: () =>
       import('./components/task-detail/task-detail.component').then(

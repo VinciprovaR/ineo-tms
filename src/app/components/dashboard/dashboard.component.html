@@ -1,0 +1,39 @@
+<div class="space-y-8 max-w-7xl mx-auto">
+  <h1 class="text-3xl font-bold text-center my-4">Task Dashboard</h1>
+
+  <!-- Statistiche principali -->
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+  >
+    <!-- Card: Total Tasks -->
+    <div class="bg-blue-500 text-white p-6 rounded-lg shadow-md text-center">
+      <h2 class="text-2xl font-bold">Total Tasks</h2>
+      <p class="text-4xl font-bold">{{ totalTasks() }}</p>
+    </div>
+
+    <!-- Generazione dinamica delle card per ogni stato -->
+    <div
+      *ngFor="let statusCount of statusCounts()"
+      [ngClass]="{
+        'bg-blue-500': statusCount.status === 'TO_DO',
+        'bg-orange-500': statusCount.status === 'IN_PROGRESS',
+        'bg-green-500': statusCount.status === 'DONE',
+        'bg-yellow-500': statusCount.status === 'IN_TESTING'
+      }"
+      class="text-white p-6 rounded-lg shadow-md text-center"
+    >
+      <h2 class="text-2xl font-bold">
+        {{ statusCount.status.replace("_", " ") }}
+      </h2>
+      <p class="text-4xl font-bold">{{ statusCount.count }}</p>
+    </div>
+  </div>
+
+  <!-- Percentuale di completamento -->
+  <div class="bg-gray-100 p-8 rounded-lg shadow-md text-center mt-8">
+    <h2 class="text-xl font-bold">Completion Percentage</h2>
+    <p class="text-4xl font-bold text-green-500">
+      {{ getCompletionPercentage() }}%
+    </p>
+  </div>
+</div>
