@@ -139,6 +139,13 @@
       "summary": "Redesign the hero section for better visual impact.",
       "description": "The site must be fully responsive. Ensure mobile views are consistent and test across devices.",
       "status": "IN_PROGRESS"
+    },
+    {
+      "id": "eac7",
+      "title": "una todo tutta mia ",
+      "summary": "una todo tutta mia ",
+      "description": "una todo tutta mia ",
+      "status": "TO_DO"
     }
   ]
 }
