@@ -7,10 +7,11 @@ import {
 } from '@angular/forms';
 import { TaskService } from '../../services/task.service';
 import { TaskStatus } from '../../models/task.model';
+import { FormatStatusPipe } from '../../pipes/format-status.pipe';
 
 @Component({
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, FormatStatusPipe],
   selector: 'app-task-form',
   templateUrl: './task-form.component.html',
   styleUrls: ['./task-form.component.css'],

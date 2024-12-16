@@ -11,6 +11,7 @@ import { Task, TaskStatus, TaskStatusClass } from '../../models/task.model';
 import { TaskService } from '../../services/task.service';
 import { FilterComponent } from '../filter/filter.component';
 import { KanbanColumnComponent } from '../kanban-column/kanban-column.component';
+import { FormatStatusPipe } from '../../pipes/format-status.pipe';
 
 @Component({
   standalone: true,
@@ -20,6 +21,7 @@ import { KanbanColumnComponent } from '../kanban-column/kanban-column.component'
     FilterComponent,
     DragDropModule,
     KanbanColumnComponent,
+    FormatStatusPipe,
   ],
   selector: 'app-kanban-board',
   templateUrl: './kanban-board.component.html',

@@ -12,6 +12,14 @@ export const TaskStatusClass: any = {
   DONE: 'bg-done',
 };
 
+export const statusMapLabel: Record<string, string> = {
+  TO_DO: 'To Do',
+  IN_PROGRESS: 'In Progress',
+  DONE: 'Done',
+  IN_TESTING: 'In Testing',
+  BACKLOG: 'Backlog',
+};
+
 export interface Task {
   id: number;
   title: string;

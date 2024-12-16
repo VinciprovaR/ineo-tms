@@ -16,10 +16,11 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { FormatStatusPipe } from '../../pipes/format-status.pipe';
 
 @Component({
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, FormatStatusPipe],
   selector: 'app-task-detail',
   templateUrl: './task-detail.component.html',
   styleUrls: ['./task-detail.component.css'],
@@ -85,8 +86,16 @@ export class TaskDetailComponent implements OnInit {
    * Salva le modifiche della task e invia l'aggiornamento al server.
    */
   saveChanges(): void {
-    if (this.isValidTitle() && this.isValidSummary()) {
-      this.taskService.updateTask(this.task$()!).subscribe({
+    if (this.taskForm.valid) {
+      const updatedTask: Task = {
+        id: this.taskId,
+        title: this.taskForm.get('title')?.value,
+        summary: this.taskForm.get('summary')?.value,
+        description: this.taskForm.get('description')?.value,
+        status: this.taskForm.get('status')?.value,
+      };
+
+      this.taskService.updateTask(updatedTask).subscribe({
         next: () => {
           this.router.navigate(['/home']); // Dopo il salvataggio, reindirizza alla Kanban
         },

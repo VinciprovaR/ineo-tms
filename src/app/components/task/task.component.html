@@ -3,6 +3,7 @@
   @if (isEditing) {
   <!-- Input field for task title -->
   <input
+    id="title"
     type="text"
     [(ngModel)]="editableTask.title"
     class="block w-full rounded-lg border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 mb-2"
@@ -20,6 +21,7 @@
 
   <!-- Textarea for task summary -->
   <textarea
+    id="summary"
     [(ngModel)]="editableTask.summary"
     class="block w-full rounded-lg border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 mb-2"
     placeholder="Enter task summary"
@@ -36,11 +38,12 @@
 
   <!-- Dropdown for selecting task status -->
   <select
+    id="status"
     [(ngModel)]="editableTask.status"
     class="block w-full rounded-lg border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 mb-2"
   >
     @for (status of statuses; track status) {
-    <option [value]="status">{{ status }}</option>
+    <option [value]="status">{{ status | formatStatus }}</option>
     }
   </select>
 
@@ -76,7 +79,7 @@
 
   <!-- Display task status -->
   <p class="text-sm text-gray-500 mt-2">
-    Status: <span class="font-medium">{{ task.status }}</span>
+    Status: <span class="font-medium">{{ task.status | formatStatus }}</span>
   </p>
 
   <!-- Action buttons for enabling edit mode or deleting the task -->

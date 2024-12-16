@@ -24,7 +24,7 @@
         [ngClass]="getColumnHeaderColor(taskByStatus.status)"
       >
         <h2 class="font-bold text-lg">
-          {{ taskByStatus.status }}
+          {{ taskByStatus.status | formatStatus }}
           <span
             class="ml-2 bg-gray-900 text-white text-sm font-semibold rounded-full px-2 py-1"
           >

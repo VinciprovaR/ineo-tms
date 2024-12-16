@@ -87,7 +87,7 @@
       class="mt-1 block w-full rounded-lg border border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 px-4 py-2"
     >
       @for (status of taskStatuses; track status) {
-      <option [value]="status">{{ status }}</option>
+      <option [value]="status">{{ status | formatStatus }}</option>
       }
     </select>
   </div>

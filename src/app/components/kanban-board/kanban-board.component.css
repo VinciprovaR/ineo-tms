@@ -28,19 +28,3 @@
   border: none;
   cursor: pointer;
 }
-
-.kanban-header.bg-to-do {
-  @apply bg-blue-500;
-}
-
-.kanban-header.bg-in-prg {
-  @apply bg-red-500;
-}
-
-.kanban-header.bg-in-testing {
-  @apply bg-yellow-500;
-}
-
-.kanban-header.bg-done {
-  @apply bg-green-500;
-}

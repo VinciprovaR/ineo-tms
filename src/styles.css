@@ -18,3 +18,19 @@ body {
 body.is-dragging {
   cursor: pointer !important;
 }
+
+.bg-to-do {
+  @apply bg-blue-500;
+}
+
+.bg-in-prg {
+  @apply bg-red-500;
+}
+
+.bg-in-testing {
+  @apply bg-yellow-500;
+}
+
+.bg-done {
+  @apply bg-green-500;
+}

@@ -2,10 +2,11 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Task, TaskStatus } from '../../models/task.model';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { FormatStatusPipe } from '../../pipes/format-status.pipe';
 
 @Component({
   standalone: true,
-  imports: [FormsModule, RouterLink],
+  imports: [FormsModule, RouterLink, FormatStatusPipe],
   selector: 'app-task',
   templateUrl: './task.component.html',
   styleUrls: ['./task.component.css'],
