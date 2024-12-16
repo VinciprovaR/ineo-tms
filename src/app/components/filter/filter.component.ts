@@ -1,14 +1,12 @@
-import { Component, EventEmitter, Output, Input, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Task } from '../../models/task.model';
 
 @Component({
   standalone: true,
   selector: 'app-filter',
   imports: [CommonModule, FormsModule],
   templateUrl: './filter.component.html',
-  styleUrls: ['./filter.component.css'],
 })
 export class FilterComponent {
   // Input properties to receive the current filter, sort key, and sort direction

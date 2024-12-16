@@ -1,39 +1,144 @@
 {
   "tasks": [
     {
-      "id": "c837",
-      "title": "diventa todo ",
-      "summary": "ewrtgwgs",
-      "description": "asdfasfa",
-      "status": "IN_PROGRESS"
-    },
-    {
-      "id": "27d3",
-      "title": "progress",
-      "summary": "progress",
-      "description": "progressprogressprogressprogress",
-      "status": "TO_DO"
-    },
-    {
-      "id": "c271",
-      "title": "testing",
-      "summary": "testing",
-      "description": "testingtestingtestingtestingtesting",
+      "id": "7831-0",
+      "title": "Implement dark mode toggle",
+      "summary": "Ensure CSS styles are responsive on all devices.",
+      "description": "Redesign the footer layout to make navigation links more visible and intuitive.",
       "status": "IN_TESTING"
     },
     {
-      "id": "3b98",
-      "title": "done",
-      "summary": "donedone",
-      "description": "donedonedonedone",
+      "id": "4601-2",
+      "title": "Set up caching strategy",
+      "summary": "Review and provide feedback on the latest pull request.",
+      "description": "The README should provide comprehensive setup instructions for developers.",
+      "status": "IN_PROGRESS"
+    },
+    {
+      "id": "7510-3",
+      "title": "Fix bug with image carousel",
+      "summary": "Design and build the user login page with validation.",
+      "description": "Write unit tests for all key components of the system, ensuring code quality and reliability.",
       "status": "TO_DO"
     },
     {
-      "id": "ae92",
-      "title": "nuova todo",
-      "summary": "nuova todonuova todo",
-      "description": "nuova todonuova todonuova todonuova todo",
+      "id": "6749-6",
+      "title": "Migrate to new server infrastructure",
+      "summary": "Prepare for server migration and move infrastructure accordingly.",
+      "description": "The user login page should be designed with proper validation to ensure only valid users can log in.",
+      "status": "DONE"
+    },
+    {
+      "id": "3583-7",
+      "title": "Redesign the home page hero section",
+      "summary": "Optimize database queries to reduce response times.",
+      "description": "Add support for OAuth2 to allow users to log in using Google, Facebook, or GitHub accounts.",
       "status": "TO_DO"
+    },
+    {
+      "id": "5320-8",
+      "title": "Refactor CSS styles for mobile responsiveness",
+      "summary": "Implement a toggle for users to switch between dark and light mode.",
+      "description": "Error handling logic should be added to all API requests to display user-friendly messages.",
+      "status": "IN_TESTING"
+    },
+    {
+      "id": "8809-10",
+      "title": "Migrate to new server infrastructure",
+      "summary": "Develop and configure a caching strategy for API requests.",
+      "description": "The user login page should be designed with proper validation to ensure only valid users can log in.",
+      "status": "IN_PROGRESS"
+    },
+    {
+      "id": "4001-12",
+      "title": "Design system architecture diagram",
+      "summary": "Fix an issue where the image carousel does not rotate correctly.",
+      "description": "The site must be fully responsive. Ensure mobile views are consistent and test across devices.",
+      "status": "IN_PROGRESS"
+    },
+    {
+      "id": "5968-13",
+      "title": "Optimize database queries",
+      "summary": "Ensure CSS styles are responsive on all devices.",
+      "description": "Migrate the entire application to the new server infrastructure while ensuring zero downtime.",
+      "status": "DONE"
+    },
+    {
+      "id": "6224-25",
+      "title": "Migrate to new server infrastructure",
+      "summary": "Conduct usability testing to improve user experience.",
+      "description": "We need to create an endpoint that handles user login, validating user credentials and returning a JWT token.",
+      "status": "IN_PROGRESS"
+    },
+    {
+      "id": "5732-36",
+      "title": "Design user login page",
+      "summary": "Add detailed instructions to the README file.",
+      "description": "The site must be fully responsive. Ensure mobile views are consistent and test across devices.",
+      "status": "IN_PROGRESS"
+    },
+    {
+      "id": "1530-28",
+      "title": "Create API endpoint for user authentication",
+      "summary": "Implement a toggle for users to switch between dark and light mode.",
+      "description": "The site must be fully responsive. Ensure mobile views are consistent and test across devices.",
+      "status": "IN_PROGRESS"
+    },
+    {
+      "id": "6225-31",
+      "title": "Update README documentation",
+      "summary": "Conduct usability testing to improve user experience.",
+      "description": "Develop a caching strategy to reduce repeated API calls and improve page load speed.",
+      "status": "TO_DO"
+    },
+    {
+      "id": "8361-42",
+      "title": "Migrate to new server infrastructure",
+      "summary": "Ensure CSS styles are responsive on all devices.",
+      "description": "Optimize database queries to reduce query times from 1s to under 300ms.",
+      "status": "IN_TESTING"
+    },
+    {
+      "id": "8477-43",
+      "title": "Implement OAuth2 authentication",
+      "summary": "Write tests to ensure functionality for key business logic.",
+      "description": "Redesign the footer layout to make navigation links more visible and intuitive.",
+      "status": "TO_DO"
+    },
+    {
+      "id": "7690-44",
+      "title": "Refactor CSS styles for mobile responsiveness",
+      "summary": "Redesign the layout of the footer to improve navigation.",
+      "description": "Write unit tests for all key components of the system, ensuring code quality and reliability.",
+      "status": "DONE"
+    },
+    {
+      "id": "7362-45",
+      "title": "Design user login page",
+      "summary": "Design a high-level architecture diagram for team alignment.",
+      "description": "Develop a caching strategy to reduce repeated API calls and improve page load speed.",
+      "status": "IN_PROGRESS"
+    },
+    {
+      "id": "9732-46",
+      "title": "Create API endpoint for user authentication",
+      "summary": "Research the feasibility of alternative frameworks for the project.",
+      "description": "This task involves setting up a CI/CD pipeline using GitHub Actions to automate the deployment process.",
+      "status": "IN_PROGRESS"
+    },
+    {
+      "id": "8925-47",
+      "title": "Optimize database queries",
+      "summary": "Develop and configure a caching strategy for API requests.",
+      "description": "Create a diagram that visualizes the key components and interactions of the system.",
+      "status": "IN_PROGRESS"
+    },
+    {
+      "id": "5744-48",
+      "title": "Implement dark mode toggle",
+      "summary": "Redesign the hero section for better visual impact.",
+      "description": "The site must be fully responsive. Ensure mobile views are consistent and test across devices.",
+      "status": "IN_PROGRESS"
     }
   ]
 }

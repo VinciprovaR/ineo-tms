@@ -14,7 +14,6 @@ import { FormatStatusPipe } from '../../pipes/format-status.pipe';
   imports: [ReactiveFormsModule, FormatStatusPipe],
   selector: 'app-task-form',
   templateUrl: './task-form.component.html',
-  styleUrls: ['./task-form.component.css'],
 })
 export class TaskFormComponent {
   taskForm: FormGroup;

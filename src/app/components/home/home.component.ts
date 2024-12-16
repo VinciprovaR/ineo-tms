@@ -8,6 +8,5 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
   standalone: true,
   imports: [KanbanBoardComponent, SidebarComponent, OpenNewTaskFormComponent],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css',
 })
 export class HomeComponent {}

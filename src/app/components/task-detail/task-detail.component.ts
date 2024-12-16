@@ -5,28 +5,25 @@ import {
   inject,
   Input,
   OnInit,
-  Signal,
 } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Task, TaskStatus } from '../../models/task.model';
-import { TaskService } from '../../services/task.service';
 import {
   FormBuilder,
   FormGroup,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Task, TaskStatus } from '../../models/task.model';
 import { FormatStatusPipe } from '../../pipes/format-status.pipe';
+import { TaskService } from '../../services/task.service';
 
 @Component({
   standalone: true,
   imports: [ReactiveFormsModule, FormatStatusPipe],
   selector: 'app-task-detail',
   templateUrl: './task-detail.component.html',
-  styleUrls: ['./task-detail.component.css'],
 })
-export class TaskDetailComponent implements OnInit {
-  private route = inject(ActivatedRoute);
+export class TaskDetailComponent {
   private router = inject(Router);
   private taskService = inject(TaskService);
   private fb = inject(FormBuilder);
@@ -49,8 +46,6 @@ export class TaskDetailComponent implements OnInit {
       }
     });
   }
-
-  ngOnInit(): void {}
 
   private initializeForm(task: any) {
     this.taskForm = this.fb.group({
@@ -83,7 +78,7 @@ export class TaskDetailComponent implements OnInit {
   }
 
   /**
-   * Salva le modifiche della task e invia l'aggiornamento al server.
+   * Saves the changes of the task and sends the update to the server.
    */
   saveChanges(): void {
     if (this.taskForm.valid) {
@@ -97,14 +92,14 @@ export class TaskDetailComponent implements OnInit {
 
       this.taskService.updateTask(updatedTask).subscribe({
         next: () => {
-          this.router.navigate(['/home']); // Dopo il salvataggio, reindirizza alla Kanban
+          this.router.navigate(['/home']); // After saving, redirects to the Kanban
         },
       });
     }
   }
 
   /**
-   * Elimina la task e reindirizza alla pagina principale.
+   * Deletes the task and redirects to the main page.
    */
   deleteTask(): void {
     this.taskService.deleteTask(this.task$()!.id);
@@ -112,8 +107,8 @@ export class TaskDetailComponent implements OnInit {
   }
 
   /**
-   * Verifica se il titolo è valido.
-   * @returns true se il titolo è valido
+   * Checks if the title is valid.
+   * @returns true if the title is valid
    */
   isValidTitle(): boolean {
     return (
@@ -122,8 +117,8 @@ export class TaskDetailComponent implements OnInit {
   }
 
   /**
-   * Verifica se la descrizione (summary) è valida.
-   * @returns true se la descrizione è valida
+   * Checks if the summary is valid.
+   * @returns true if the summary is valid
    */
   isValidSummary(): boolean {
     return (
@@ -132,8 +127,8 @@ export class TaskDetailComponent implements OnInit {
   }
 
   /**
-   * Verifica se la descrizione (description) è valida.
-   * @returns true se la descrizione è valida
+   * Checks if the description is valid.
+   * @returns true if the description is valid
    */
   isValidDescription(): boolean {
     return (
@@ -143,7 +138,7 @@ export class TaskDetailComponent implements OnInit {
   }
 
   /**
-   * Torna alla pagina principale.
+   * Navigates back to the home page.
    */
   goBackToHome(): void {
     this.router.navigate(['/']);

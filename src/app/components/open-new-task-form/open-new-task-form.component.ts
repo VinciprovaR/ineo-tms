@@ -6,15 +6,14 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
   standalone: true,
   imports: [],
   templateUrl: './open-new-task-form.component.html',
-  styleUrl: './open-new-task-form.component.css',
 })
-export class OpenNewTaskFormComponent implements OnInit {
-  ngOnInit(): void {
-    console.log('OpenNewTaskFormComponent');
-  }
+export class OpenNewTaskFormComponent {
   @Input({ required: true })
   appSidebar!: SidebarComponent;
 
+  /**
+   * Toggles the visibility of the task form in the sidebar.
+   */
   toggleTaskForm(): void {
     this.appSidebar.toggleTaskForm();
   }

@@ -12,12 +12,18 @@ export const TaskStatusClass: any = {
   DONE: 'bg-done',
 };
 
+export const customColorsCharts = [
+  { name: 'To Do', value: '#3b82f6' },
+  { name: 'In Progress', value: '#ef4444' },
+  { name: 'In Testing', value: '#eab308 ' },
+  { name: 'Done', value: '#22c55e ' },
+];
+
 export const statusMapLabel: Record<string, string> = {
   TO_DO: 'To Do',
   IN_PROGRESS: 'In Progress',
   DONE: 'Done',
   IN_TESTING: 'In Testing',
-  BACKLOG: 'Backlog',
 };
 
 export interface Task {

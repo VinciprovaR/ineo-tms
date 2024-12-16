@@ -1,4 +1,5 @@
 <div class="space-y-8">
+  <!-- Filter component for sorting and filtering tasks -->
   <div>
     <app-filter
       [sortKey]="sortKey()"
@@ -12,12 +13,13 @@
 
   <!-- Kanban board layout with responsive columns -->
   <div class="kanban-board kanban-grid grid gap-4">
+    <!-- Loop through each status-based task list to create a column -->
     @for(taskByStatus of tasksByStatus(); track taskByStatus.status){
     <div
       [ngClass]="{ collapsed: isCollapsed(taskByStatus.status) }"
       class="kanban-column relative bg-white rounded-xl shadow-lg flex flex-col transition-all duration-300"
     >
-      <!-- Header della colonna -->
+      <!-- Column header with status title and task count -->
       <div
         (click)="toggleCollapse(taskByStatus.status)"
         class="kanban-header cursor-pointer p-4 rounded-t-xl flex items-center justify-between text-white"
@@ -32,7 +34,7 @@
           </span>
         </h2>
 
-        <!-- Icona di collapse/expand -->
+        <!-- Collapse/expand icon -->
         <button class="collapse-btn">
           @if(isCollapsed(taskByStatus.status)) {
           <i class="fas fa-chevron-right"></i>
@@ -42,7 +44,7 @@
         </button>
       </div>
 
-      <!-- Corpo della colonna (imploso/esploso) -->
+      <!-- Column body containing the list of tasks -->
       <div class="h-full">
         <app-kanban-column
           [status]="taskByStatus.status"

@@ -11,6 +11,7 @@ import { TaskStatus, TaskStatusClass } from '../../models/task.model';
 import { TaskService } from '../../services/task.service';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { FormatStatusPipe } from '../../pipes/format-status.pipe';
+import { customColorsCharts } from '../../models/task.model';
 
 @Component({
   standalone: true,
@@ -18,19 +19,17 @@ import { FormatStatusPipe } from '../../pipes/format-status.pipe';
   providers: [FormatStatusPipe],
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
   private taskService = inject(TaskService);
   private formatStatusPipe = inject(FormatStatusPipe);
-
-  // Tasks divise per stato
+  customColorsCharts = customColorsCharts;
   tasks$ = this.taskService.tasks$;
   statuses = Object.values(TaskStatus);
   totalTasks = computed(() => this.tasks$().length);
   tasksByStatus = computed(() => this.getTasksByStatus());
+  statusOrder = ['To Do', 'In Progress', 'In Testing', 'Done'];
 
-  // Statistiche derivate per ciascuno stato in modo dinamico
   statusCounts = computed(() =>
     this.statuses.map((status) => ({
       status,
@@ -39,8 +38,6 @@ export class DashboardComponent implements OnInit {
     }))
   );
 
-  // Dati per i grafici
-  pieChartData: any[] = [];
   barChartData: any[] = [];
 
   constructor() {
@@ -54,7 +51,8 @@ export class DashboardComponent implements OnInit {
   }
 
   /**
-   * Conta quante task ci sono per ogni stato.
+   * Counts how many tasks exist for each status.
+   * @returns An object with task counts per status.
    */
   getTasksByStatus() {
     const tasksByStatus: Record<string, number> = {};
@@ -65,14 +63,17 @@ export class DashboardComponent implements OnInit {
   }
 
   /**
-   * Ritorna il conteggio delle task per uno specifico stato.
+   * Returns the count of tasks for a specific status.
+   * @param status - The status to count tasks for.
+   * @returns The number of tasks for the given status.
    */
   getTaskCountByStatus(status: TaskStatus) {
     return this.tasks$().filter((task) => task.status === status).length;
   }
 
   /**
-   * Ottiene la percentuale di completamento delle task.
+   * Calculates the completion percentage of tasks.
+   * @returns The percentage of tasks completed.
    */
   getCompletionPercentage() {
     const total = this.totalTasks();
@@ -82,28 +83,42 @@ export class DashboardComponent implements OnInit {
     );
   }
 
+  /**
+   * Prepares the chart data based on tasks by status.
+   */
   prepareChartData() {
     const tasksByStatus = this.getTasksByStatus();
-
-    this.pieChartData = Object.keys(tasksByStatus).map((status) => ({
-      name: this.formatStatusPipe.transform(status),
-      value: tasksByStatus[status],
-    }));
-
-    this.barChartData = Object.keys(tasksByStatus).map((status) => ({
-      name: this.formatStatusPipe.transform(status),
-      value: tasksByStatus[status],
-    }));
+    this.barChartData = Object.keys(tasksByStatus)
+      .map((status) => ({
+        name: this.formatStatusPipe.transform(status),
+        value: tasksByStatus[status],
+      }))
+      .sort(
+        (a, b) =>
+          this.statusOrder.indexOf(a.name) - this.statusOrder.indexOf(b.name)
+      );
   }
 
+  /**
+   * Calculates the width of the chart.
+   * @returns The width of the chart.
+   */
   getChartWidth(): number {
     return Math.min(window.innerWidth * 0.95, 1280);
   }
 
+  /**
+   * Calculates the height of the chart based on a 16:9 aspect ratio.
+   * @returns The height of the chart.
+   */
   getChartHeight(): number {
-    return this.getChartWidth() * 0.5625; // Rapporto 16:9
+    return this.getChartWidth() * 0.5625; // 16:9 aspect ratio
   }
 
+  /**
+   * Listens for window resize events and handles the resize logic.
+   * @param event - The resize event.
+   */
   @HostListener('window:resize', ['$event'])
   onResize(event: Event): void {}
 }

@@ -8,14 +8,14 @@
 >
   @if(!isCollapsed) {
   <div class="kanban-body p-4 space-y-4">
-    <!-- Skeleton loader o messaggio di "nessun task" -->
+    <!-- Skeleton loader -->
     @if(tasks.length === 0) { @if(isLoading) {
     <app-skeleton-loader></app-skeleton-loader>
     } @else {
     <p class="text-gray-500 text-center md:text-left">No tasks available</p>
     } }
 
-    <!-- Lista di task -->
+    <!-- Task list-->
     @for(task of tasks; track task.id) {
     <div
       cdkDrag

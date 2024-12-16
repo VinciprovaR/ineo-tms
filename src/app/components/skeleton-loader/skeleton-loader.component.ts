@@ -5,8 +5,5 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './skeleton-loader.component.html',
-  styleUrl: './skeleton-loader.component.css'
 })
-export class SkeletonLoaderComponent {
-
-}
+export class SkeletonLoaderComponent {}

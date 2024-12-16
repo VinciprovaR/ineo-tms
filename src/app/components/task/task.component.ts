@@ -9,7 +9,6 @@ import { FormatStatusPipe } from '../../pipes/format-status.pipe';
   imports: [FormsModule, RouterLink, FormatStatusPipe],
   selector: 'app-task',
   templateUrl: './task.component.html',
-  styleUrls: ['./task.component.css'],
 })
 export class TaskComponent {
   @Input() task!: Task;
@@ -20,11 +19,17 @@ export class TaskComponent {
   editableTask!: Task;
   statuses = Object.values(TaskStatus);
 
+  /**
+   * Enables edit mode for the task.
+   */
   enableEdit(): void {
     this.isEditing = true;
     this.editableTask = { ...this.task };
   }
 
+  /**
+   * Saves the edited task and emits the update event.
+   */
   saveEdit(): void {
     if (this.isValidTitle() && this.isValidSummary()) {
       this.update.emit(this.editableTask);
@@ -32,17 +37,23 @@ export class TaskComponent {
     }
   }
 
+  /**
+   * Cancels the edit mode and restores the original task values.
+   */
   cancelEdit(): void {
     this.isEditing = false;
   }
 
+  /**
+   * Emits a delete event for the current task.
+   */
   deleteTask(): void {
     this.delete.emit(this.task.id);
   }
 
   /**
-   * Validazione del titolo
-   * @returns true se il titolo è valido
+   * Validates the task title.
+   * @returns true if the title is valid
    */
   isValidTitle(): boolean {
     return (
@@ -52,8 +63,8 @@ export class TaskComponent {
   }
 
   /**
-   * Validazione del summary (descrizione)
-   * @returns true se il summary è valido
+   * Validates the task summary.
+   * @returns true if the summary is valid
    */
   isValidSummary(): boolean {
     return (

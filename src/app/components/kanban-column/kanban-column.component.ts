@@ -20,7 +20,6 @@ import { SkeletonLoaderComponent } from '../skeleton-loader/skeleton-loader.comp
   ],
   selector: 'app-kanban-column',
   templateUrl: './kanban-column.component.html',
-  styleUrls: ['./kanban-column.component.css'],
 })
 export class KanbanColumnComponent {
   @Input() status!: string;
@@ -36,23 +35,25 @@ export class KanbanColumnComponent {
   @Output() taskDeleted = new EventEmitter<number>();
   @Output() taskUpdated = new EventEmitter<Task>();
 
+  /**
+   * Handles the drag-and-drop action for tasks within and between columns.
+   * @param event - The drag and drop event containing information about the source and destination of the task.
+   */
   onTaskDrop(event: CdkDragDrop<Task[]>) {
     if (
       event.previousContainer === event.container &&
       event.previousIndex === event.currentIndex
     ) {
-      return; // Se la posizione è la stessa, non fare nulla
+      return;
     }
 
     if (event.previousContainer === event.container) {
-      // Spostamento nella stessa lista
       moveItemInArray(
         event.container.data,
         event.previousIndex,
         event.currentIndex
       );
     } else {
-      // Spostamento in una lista diversa
       const task = event.previousContainer.data[event.previousIndex];
       task.status = this.status as TaskStatus;
       transferArrayItem(
@@ -66,23 +67,31 @@ export class KanbanColumnComponent {
   }
 
   /**
-   * Aggiunge la classe is-dragging al body quando il drag inizia
+   * Adds the 'is-dragging' class to the body when dragging starts.
    */
   onDragStarted(): void {
     document.body.classList.add('is-dragging');
   }
 
   /**
-   * Rimuove la classe is-dragging dal body quando il drag termina
+   * Removes the 'is-dragging' class from the body when dragging ends.
    */
   onDragEnded(): void {
     document.body.classList.remove('is-dragging');
   }
 
+  /**
+   * Emits a delete event for the specified task.
+   * @param id - The ID of the task to be deleted.
+   */
   deleteTask(id: number): void {
     this.taskDeleted.emit(id);
   }
 
+  /**
+   * Emits an update event for the specified task.
+   * @param task - The task to be updated.
+   */
   updateTask(task: Task): void {
     this.taskUpdated.emit(task);
   }
