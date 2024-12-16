@@ -4,9 +4,7 @@ export const routes: Routes = [
   {
     path: 'home',
     loadComponent: () =>
-      import('./components/kanban-board/kanban-board.component').then(
-        (m) => m.KanbanBoardComponent
-      ),
+      import('./components/home/home.component').then((m) => m.HomeComponent),
     title: 'Home',
   },
   {

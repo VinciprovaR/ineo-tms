@@ -9,6 +9,7 @@
       (sortDirectionChange)="onSortDirectionChange($event)"
     ></app-filter>
   </div>
+
   <!-- Kanban board layout with responsive columns -->
   <div class="kanban-board kanban-grid grid gap-4">
     @for(taskByStatus of tasksByStatus(); track taskByStatus.status){

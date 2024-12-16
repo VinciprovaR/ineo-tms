@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { SidebarComponent } from '../sidebar/sidebar.component';
 
 @Component({
@@ -8,7 +8,10 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
   templateUrl: './open-new-task-form.component.html',
   styleUrl: './open-new-task-form.component.css',
 })
-export class OpenNewTaskFormComponent {
+export class OpenNewTaskFormComponent implements OnInit {
+  ngOnInit(): void {
+    console.log('OpenNewTaskFormComponent');
+  }
   @Input({ required: true })
   appSidebar!: SidebarComponent;
 
