@@ -65,6 +65,20 @@ export class KanbanColumnComponent {
     }
   }
 
+  /**
+   * Aggiunge la classe is-dragging al body quando il drag inizia
+   */
+  onDragStarted(): void {
+    document.body.classList.add('is-dragging');
+  }
+
+  /**
+   * Rimuove la classe is-dragging dal body quando il drag termina
+   */
+  onDragEnded(): void {
+    document.body.classList.remove('is-dragging');
+  }
+
   deleteTask(id: number): void {
     this.taskDeleted.emit(id);
   }
