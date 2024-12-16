@@ -7,7 +7,7 @@
   class="space-y-2 h-full cursor-pointer"
 >
   @if(!isCollapsed) {
-  <div class="kanban-body p-4 space-y-4">
+  <div class="kanban-body p-6 space-y-6">
     <!-- Skeleton loader -->
     @if(tasks.length === 0) { @if(isLoading) {
     <app-skeleton-loader></app-skeleton-loader>
@@ -21,7 +21,6 @@
       cdkDrag
       (cdkDragStarted)="onDragStarted()"
       (cdkDragEnded)="onDragEnded()"
-      class="space-y-2"
     >
       <app-task
         [task]="task"

@@ -12,17 +12,17 @@
   </div>
 
   <!-- Kanban board layout with responsive columns -->
-  <div class="kanban-board kanban-grid grid gap-4">
+  <div class="kanban-board kanban-grid grid gap-3">
     <!-- Loop through each status-based task list to create a column -->
     @for(taskByStatus of tasksByStatus(); track taskByStatus.status){
     <div
       [ngClass]="{ collapsed: isCollapsed(taskByStatus.status) }"
-      class="kanban-column relative bg-white rounded-xl shadow-lg flex flex-col transition-all duration-300"
+      class="kanban-column relative bg-white rounded-2xl shadow-md flex flex-col transition-all duration-300 hover:shadow-xl border border-gray-200"
     >
       <!-- Column header with status title and task count -->
       <div
         (click)="toggleCollapse(taskByStatus.status)"
-        class="kanban-header cursor-pointer p-4 rounded-t-xl flex items-center justify-between text-white"
+        class="kanban-header cursor-pointer p-4 rounded-t-2xl flex items-center justify-between text-white"
         [ngClass]="getColumnHeaderColor(taskByStatus.status)"
       >
         <h2 class="font-bold text-lg">
@@ -45,7 +45,7 @@
       </div>
 
       <!-- Column body containing the list of tasks -->
-      <div class="h-full">
+      <div class="h-full bg-gray-50 rounded-b-2xl">
         <app-kanban-column
           [status]="taskByStatus.status"
           [tasks]="filterAndSortTasks(taskByStatus.tasks)"

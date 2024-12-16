@@ -104,7 +104,10 @@ export class DashboardComponent implements OnInit {
    * @returns The width of the chart.
    */
   getChartWidth(): number {
-    return Math.min(window.innerWidth * 0.95, 1280);
+    return Math.min(
+      window.innerWidth * 0.95 > 320 ? window.innerWidth * 0.95 - 50 : 320,
+      720
+    );
   }
 
   /**
