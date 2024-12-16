@@ -1,12 +1,12 @@
 <div class="space-y-8">
   <div>
     <app-filter
-      [filterQuery]="filterQuery()"
       [sortKey]="sortKey()"
       [sortDirection]="sortDirection()"
       (filterQueryChange)="onFilterQueryChange($event)"
       (sortKeyChange)="onSortKeyChange($event)"
       (sortDirectionChange)="onSortDirectionChange($event)"
+      [filterQuery]="filterQuery()"
     ></app-filter>
   </div>
 
@@ -43,27 +43,18 @@
       </div>
 
       <!-- Corpo della colonna (imploso/esploso) -->
-      @if(!isCollapsed(taskByStatus.status)) {
-      <div class="kanban-body p-4 space-y-4">
-        <!-- Skeleton loader o messaggio di "nessun task" -->
-        @if(taskByStatus.tasks.length === 0){ @if(isLoading$()){
-        <app-skeleton-loader></app-skeleton-loader>
-        } @else {
-        <p class="text-gray-500 text-center md:text-left">No tasks available</p>
-        } }
-
-        <!-- Lista di task -->
-        @for(task of filterAndSortTasks(taskByStatus.tasks); track task.id){
-        <div class="space-y-2">
-          <app-task
-            [task]="task"
-            (delete)="deleteTask($event)"
-            (update)="updateTask($event)"
-          ></app-task>
-        </div>
-        }
+      <div class="h-full">
+        <app-kanban-column
+          [status]="taskByStatus.status"
+          [tasks]="filterAndSortTasks(taskByStatus.tasks)"
+          [connectedLists]="connectedLists"
+          [isCollapsed]="isCollapsed(taskByStatus.status)"
+          [isLoading]="isLoading$()"
+          (taskMoved)="updateTask($event.task)"
+          (taskDeleted)="deleteTask($event)"
+          (taskUpdated)="updateTask($event)"
+        ></app-kanban-column>
       </div>
-      }
     </div>
     }
   </div>

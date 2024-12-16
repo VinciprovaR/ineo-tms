@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Output, Input } from '@angular/core';
+import { Component, EventEmitter, Output, Input, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Task } from '../../models/task.model';
 
 @Component({
   standalone: true,
@@ -27,6 +28,7 @@ export class FilterComponent {
    */
   onFilterChange(event: Event): void {
     const input = event.target as HTMLInputElement;
+
     this.filterQueryChange.emit(input.value);
   }
 

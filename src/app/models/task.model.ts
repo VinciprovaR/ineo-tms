@@ -1,15 +1,15 @@
 export enum TaskStatus {
-  TO_DO = 'To Do',
-  IN_PROGRESS = 'In Progress',
-  IN_TESTING = 'In Testing',
-  DONE = 'Done',
+  TO_DO = 'TO_DO',
+  IN_PROGRESS = 'IN_PROGRESS',
+  IN_TESTING = 'IN_TESTING',
+  DONE = 'DONE',
 }
 
 export const TaskStatusClass: any = {
-  'To Do': 'bg-to-do',
-  'In Progress': 'bg-in-prg',
-  'In Testing': 'bg-in-testing',
-  Done: 'bg-done',
+  TO_DO: 'bg-to-do',
+  IN_PROGRESS: 'bg-in-prg',
+  IN_TESTING: 'bg-in-testing',
+  DONE: 'bg-done',
 };
 
 export interface Task {
