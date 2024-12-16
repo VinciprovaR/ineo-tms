@@ -12,25 +12,25 @@ body {
   height: 100%;
   min-height: 100vh;
   background-color: rgb(245, 245, 245);
+  padding-top: 64px;
 }
 
-/* Quando il drag è attivo, forziamo il cursore pointer ovunque */
 body.is-dragging {
   cursor: pointer !important;
 }
 
 .bg-to-do {
-  @apply bg-blue-500;
+  @apply bg-gradient-to-r from-indigo-500 to-indigo-700 hover:from-indigo-600 hover:to-indigo-700;
 }
 
 .bg-in-prg {
-  @apply bg-red-500;
+  @apply bg-gradient-to-r from-red-500 to-red-700 hover:from-red-600 hover:to-red-700;
 }
 
 .bg-in-testing {
-  @apply bg-yellow-500;
+  @apply bg-gradient-to-r from-yellow-500 to-yellow-700 hover:from-yellow-600 hover:to-yellow-700;
 }
 
 .bg-done {
-  @apply bg-green-500;
+  @apply bg-gradient-to-r from-green-500 to-green-700 hover:from-green-600 hover:to-green-700;
 }

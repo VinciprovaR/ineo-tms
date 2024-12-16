@@ -47,7 +47,7 @@
       "title": "Migrate to new server infrastructure",
       "summary": "Develop and configure a caching strategy for API requests.",
       "description": "The user login page should be designed with proper validation to ensure only valid users can log in.",
-      "status": "IN_PROGRESS"
+      "status": "IN_TESTING"
     },
     {
       "id": "4001-12",
@@ -68,7 +68,7 @@
       "title": "Migrate to new server infrastructure",
       "summary": "Conduct usability testing to improve user experience.",
       "description": "We need to create an endpoint that handles user login, validating user credentials and returning a JWT token.",
-      "status": "IN_PROGRESS"
+      "status": "TO_DO"
     },
     {
       "id": "5732-36",
@@ -117,7 +117,7 @@
       "title": "Design user login page",
       "summary": "Design a high-level architecture diagram for team alignment.",
       "description": "Develop a caching strategy to reduce repeated API calls and improve page load speed.",
-      "status": "IN_PROGRESS"
+      "status": "IN_TESTING"
     },
     {
       "id": "9732-46",

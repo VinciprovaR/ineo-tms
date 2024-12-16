@@ -15,7 +15,7 @@ import { customColorsCharts } from '../../models/task.model';
 
 @Component({
   standalone: true,
-  imports: [CommonModule, NgxChartsModule],
+  imports: [CommonModule, NgxChartsModule, FormatStatusPipe],
   providers: [FormatStatusPipe],
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -112,7 +112,7 @@ export class DashboardComponent implements OnInit {
    * @returns The height of the chart.
    */
   getChartHeight(): number {
-    return this.getChartWidth() * 0.5625; // 16:9 aspect ratio
+    return this.getChartWidth() * 0.5625;
   }
 
   /**

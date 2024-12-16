@@ -1,5 +1,5 @@
-<div class="space-y-4 max-w-7xl mx-auto">
-  <!-- Statistiche principali -->
+<div class="space-y-4 mx-auto">
+  <!-- Main statistics section -->
   <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
     <!-- Card: Total Tasks -->
     <div class="bg-purple-500 text-white p-4 rounded-lg shadow-md text-center">
@@ -7,20 +7,21 @@
       <p class="text-2xl font-bold">{{ totalTasks() }}</p>
     </div>
 
-    <!-- Generazione dinamica delle card per ogni stato -->
+    <!-- Dynamically generated cards for each task status -->
+    @for(statusCount of statusCounts(); track statusCount.status){
     <div
-      *ngFor="let statusCount of statusCounts()"
       [ngClass]="statusCount.class"
       class="text-white p-4 rounded-lg shadow-md text-center"
     >
       <h2 class="text-sm font-bold">
-        {{ statusCount.status.replace("_", " ") }}
+        {{ statusCount.status | formatStatus }}
       </h2>
       <p class="text-2xl font-bold">{{ statusCount.count }}</p>
     </div>
+    }
   </div>
 
-  <!-- Percentuale di completamento -->
+  <!-- Completion percentage section -->
   <div class="bg-gray-100 p-4 rounded-lg shadow-md text-center">
     <h2 class="text-sm font-bold">Completion %</h2>
     <p class="text-2xl font-bold text-blue-600">
@@ -28,7 +29,7 @@
     </p>
   </div>
 
-  <!-- Grafico a barre -->
+  <!-- Bar chart section for task counts by status -->
   <div>
     <h2 class="text-sm font-bold text-center mb-2">Task Counts by Status</h2>
     <ngx-charts-bar-vertical
