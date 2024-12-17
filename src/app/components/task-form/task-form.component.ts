@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -18,8 +18,10 @@ import { FormatStatusPipe } from '../../pipes/format-status.pipe';
 export class TaskFormComponent {
   taskForm: FormGroup;
   taskStatuses = Object.values(TaskStatus);
+  private fb = inject(FormBuilder);
+  private taskService = inject(TaskService);
 
-  constructor(private fb: FormBuilder, private taskService: TaskService) {
+  constructor() {
     // Initialize the form with default values and validators for each field
     this.taskForm = this.fb.group({
       title: [

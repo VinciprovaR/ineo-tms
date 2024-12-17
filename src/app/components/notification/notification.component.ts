@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { NotificationService } from '../../services/notification.service';
 import { CommonModule } from '@angular/common';
+import { Component, inject, OnInit } from '@angular/core';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
   selector: 'app-notification',
@@ -11,8 +11,9 @@ import { CommonModule } from '@angular/common';
 })
 export class NotificationComponent implements OnInit {
   notifications: { type: 'success' | 'error'; message: string }[] = [];
+  private readonly notificationService = inject(NotificationService);
 
-  constructor(private notificationService: NotificationService) {}
+  constructor() {}
 
   ngOnInit(): void {
     this.notificationService.notifications$.subscribe((notifications) => {
