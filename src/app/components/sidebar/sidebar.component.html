@@ -1,8 +1,8 @@
 <div
   class="fixed pt-[64px] top-0 right-0 h-screen w-full md:w-1/3 bg-white shadow-lg transition-transform transform flex flex-col"
   [ngClass]="{
-    'translate-x-full': !isTaskFormOpen(),
-    transform: isTaskFormOpen()
+    'translate-x-full': !isTaskFormOpen$(),
+    transform: isTaskFormOpen$()
   }"
 >
   <div class="relative">
@@ -19,6 +19,6 @@
   </div>
   <!-- Contenuto scrollabile della sidebar -->
   <div class="flex-grow overflow-y-auto">
-    <app-task-form (formSubmit)="onTaskFormSubmit($event)"></app-task-form>
+    <app-task-form (onFormSubmit)="onTaskFormSubmit($event)"></app-task-form>
   </div>
 </div>

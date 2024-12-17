@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -20,6 +20,7 @@ export class TaskFormComponent {
   taskStatuses = Object.values(TaskStatus);
   private fb = inject(FormBuilder);
   private taskService = inject(TaskService);
+  @Output() onFormSubmit = new EventEmitter<null>();
 
   constructor() {
     // Initialize the form with default values and validators for each field
@@ -60,6 +61,7 @@ export class TaskFormComponent {
   addTask(): void {
     if (this.taskForm.valid) {
       this.taskService.addTask(this.taskForm.value); // Call the TaskService to create a new task
+      this.onFormSubmit.emit();
       this.taskForm.reset({
         title: '',
         description: '',

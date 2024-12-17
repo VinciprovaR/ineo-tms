@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, signal } from '@angular/core';
+import { Component, OnDestroy, OnInit, signal } from '@angular/core';
 import { TaskFormComponent } from '../task-form/task-form.component';
 
 @Component({
@@ -10,13 +10,13 @@ import { TaskFormComponent } from '../task-form/task-form.component';
   styleUrl: './sidebar.component.css',
 })
 export class SidebarComponent {
-  isTaskFormOpen = signal<boolean>(false);
+  isTaskFormOpen$ = signal<boolean>(false);
 
   /**
    * Toggles the visibility of the task form.
    */
   toggleTaskForm(): void {
-    this.isTaskFormOpen.set(!this.isTaskFormOpen());
+    this.isTaskFormOpen$.set(!this.isTaskFormOpen$());
   }
 
   /**
