@@ -1,0 +1,19 @@
+.animate-slide {
+  width: 25%;
+  height: 100%;
+  animation: slide 2s linear infinite;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(350%);
+  }
+}
+
+.hidden {
+  display: none;
+}
