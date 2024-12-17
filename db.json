@@ -1,32 +1,11 @@
 {
   "tasks": [
     {
-      "id": "7831-0",
-      "title": "Implement dark mode toggle",
-      "summary": "Ensure CSS styles are responsive on all devices.",
-      "description": "Redesign the footer layout to make navigation links more visible and intuitive.",
-      "status": "IN_TESTING"
-    },
-    {
       "id": "4601-2",
       "title": "Set up caching strategy",
       "summary": "Review and provide feedback on the latest pull request.",
       "description": "The README should provide comprehensive setup instructions for developers.",
       "status": "IN_PROGRESS"
-    },
-    {
-      "id": "7510-3",
-      "title": "Fix bug with image carousel",
-      "summary": "Design and build the user login page with validation.",
-      "description": "Write unit tests for all key components of the system, ensuring code quality and reliability.",
-      "status": "TO_DO"
-    },
-    {
-      "id": "6749-6",
-      "title": "Migrate to new server infrastructure",
-      "summary": "Prepare for server migration and move infrastructure accordingly.",
-      "description": "The user login page should be designed with proper validation to ensure only valid users can log in.",
-      "status": "DONE"
     },
     {
       "id": "3583-7",
@@ -45,16 +24,9 @@
     {
       "id": "8809-10",
       "title": "Migrate to new server infrastructure",
-      "summary": "Develop and configure a caching strategy for API requests.",
+      "summary": "Develop and configure a caching strategy for API requests.s",
       "description": "The user login page should be designed with proper validation to ensure only valid users can log in.",
       "status": "IN_TESTING"
-    },
-    {
-      "id": "4001-12",
-      "title": "Design system architecture diagram",
-      "summary": "Fix an issue where the image carousel does not rotate correctly.",
-      "description": "The site must be fully responsive. Ensure mobile views are consistent and test across devices.",
-      "status": "IN_PROGRESS"
     },
     {
       "id": "5968-13",
@@ -73,16 +45,9 @@
     {
       "id": "5732-36",
       "title": "Design user login page",
-      "summary": "Add detailed instructions to the README file.",
+      "summary": "Add detailed instructions to the README file.ss",
       "description": "The site must be fully responsive. Ensure mobile views are consistent and test across devices.",
-      "status": "IN_PROGRESS"
-    },
-    {
-      "id": "1530-28",
-      "title": "Create API endpoint for user authentication",
-      "summary": "Implement a toggle for users to switch between dark and light mode.",
-      "description": "The site must be fully responsive. Ensure mobile views are consistent and test across devices.",
-      "status": "IN_PROGRESS"
+      "status": "IN_TESTING"
     },
     {
       "id": "6225-31",
@@ -101,7 +66,7 @@
     {
       "id": "8477-43",
       "title": "Implement OAuth2 authentication",
-      "summary": "Write tests to ensure functionality for key business logic.",
+      "summary": "Write tests to ensure functionality for key business logics.ass",
       "description": "Redesign the footer layout to make navigation links more visible and intuitive.",
       "status": "TO_DO"
     },
@@ -111,20 +76,6 @@
       "summary": "Redesign the layout of the footer to improve navigation.",
       "description": "Write unit tests for all key components of the system, ensuring code quality and reliability.",
       "status": "DONE"
-    },
-    {
-      "id": "7362-45",
-      "title": "Design user login page",
-      "summary": "Design a high-level architecture diagram for team alignment.",
-      "description": "Develop a caching strategy to reduce repeated API calls and improve page load speed.",
-      "status": "IN_TESTING"
-    },
-    {
-      "id": "9732-46",
-      "title": "Create API endpoint for user authentication",
-      "summary": "Research the feasibility of alternative frameworks for the project.",
-      "description": "This task involves setting up a CI/CD pipeline using GitHub Actions to automate the deployment process.",
-      "status": "IN_PROGRESS"
     },
     {
       "id": "8925-47",
@@ -145,6 +96,20 @@
       "title": "una todo tutta mia ",
       "summary": "una todo tutta mia ",
       "description": "una todo tutta mia ",
+      "status": "TO_DO"
+    },
+    {
+      "id": "cf7c",
+      "title": "Test display",
+      "summary": "Test display",
+      "description": "Test display",
+      "status": "TO_DO"
+    },
+    {
+      "id": "2646",
+      "title": "Test tesk 2",
+      "summary": "Test tesk 2Test tesk 2",
+      "description": "Test tesk 2Test tesk 2",
       "status": "TO_DO"
     }
   ]

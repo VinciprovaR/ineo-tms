@@ -12,7 +12,7 @@ import { FormatStatusPipe } from '../../pipes/format-status.pipe';
 })
 export class TaskComponent {
   @Input() task!: Task;
-  @Output() delete = new EventEmitter<number>();
+  @Output() delete = new EventEmitter<Task>();
   @Output() update = new EventEmitter<Task>();
 
   isEditing: boolean = false;
@@ -48,7 +48,7 @@ export class TaskComponent {
    * Emits a delete event for the current task.
    */
   deleteTask(): void {
-    this.delete.emit(this.task.id);
+    this.delete.emit(this.task);
   }
 
   /**

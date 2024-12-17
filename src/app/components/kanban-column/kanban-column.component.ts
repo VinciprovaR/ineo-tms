@@ -32,7 +32,7 @@ export class KanbanColumnComponent {
     task: Task;
     newStatus: TaskStatus;
   }>();
-  @Output() taskDeleted = new EventEmitter<number>();
+  @Output() taskDeleted = new EventEmitter<Task>();
   @Output() taskUpdated = new EventEmitter<Task>();
 
   /**
@@ -84,8 +84,8 @@ export class KanbanColumnComponent {
    * Emits a delete event for the specified task.
    * @param id - The ID of the task to be deleted.
    */
-  deleteTask(id: number): void {
-    this.taskDeleted.emit(id);
+  deleteTask(task: Task): void {
+    this.taskDeleted.emit(task);
   }
 
   /**

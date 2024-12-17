@@ -47,8 +47,8 @@ export class KanbanBoardComponent {
    * Deletes a task by its ID.
    * @param id - The ID of the task to delete.
    */
-  deleteTask(id: number): void {
-    this.taskService.deleteTask(id);
+  deleteTask(task: Task): void {
+    this.taskService.deleteTask(task);
   }
 
   /**
@@ -56,9 +56,7 @@ export class KanbanBoardComponent {
    * @param updatedTask - The updated task data.
    */
   updateTask(updatedTask: Task): void {
-    this.taskService.updateTask(updatedTask).subscribe(() => {
-      console.log('Task updated successfully');
-    });
+    this.taskService.updateTask(updatedTask);
   }
 
   /**

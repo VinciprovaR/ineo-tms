@@ -1,0 +1,12 @@
+.notification {
+  animation: fade-out 3s forwards;
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

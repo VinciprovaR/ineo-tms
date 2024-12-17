@@ -90,11 +90,7 @@ export class TaskDetailComponent {
         status: this.taskForm.get('status')?.value,
       };
 
-      this.taskService.updateTask(updatedTask).subscribe({
-        next: () => {
-          this.router.navigate(['/home']); // After saving, redirects to the Kanban
-        },
-      });
+      this.taskService.updateTask(updatedTask);
     }
   }
 
@@ -102,7 +98,7 @@ export class TaskDetailComponent {
    * Deletes the task and redirects to the main page.
    */
   deleteTask(): void {
-    this.taskService.deleteTask(this.task$()!.id);
+    this.taskService.deleteTask(this.task$()!);
     this.router.navigate(['/home']);
   }
 
