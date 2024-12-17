@@ -1,27 +1,85 @@
-# IneoTms
+# Task Management System (IneoTms)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.11.
+This project is a **Task Management System** built with **Angular**. It provides an interface to manage tasks efficiently and track their status. The system supports both **local development** and **production environments**, with separate API endpoints for each environment.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🚀 **Getting Started**
 
-## Code scaffolding
+To start the development server, use the following command:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```bash
+npm run start
+```
 
-## Build
+This command will start the Angular development server, and you can access the application in your browser at:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```
+http://localhost:4200/
+```
 
-## Running unit tests
+The application will automatically reload if you make any changes to the source files.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+---
 
-## Running end-to-end tests
+## 📡 **API Endpoints**
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+The application interacts with a backend to manage task data. The API endpoint changes based on the environment:
 
-## Further help
+- **Local Development:**  
+  The API for task management runs via **JSON Server** and is available at:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+  ```
+  http://localhost:3000/tasks
+  ```
+
+  This endpoint is used when running the app in a local development environment.
+
+- **Production Environment:**  
+  In production, the app points to a cloud-based API endpoint:
+  ```
+  https://67615aff6be7889dc360be2c.mockapi.io/api/tasks
+  ```
+  This endpoint is used when the app is built and deployed.
+
+---
+
+## 🛠️ **Build the Project**
+
+To build the project for production, run:
+
+```bash
+ng build
+```
+
+The build artifacts will be stored in the `dist/` directory. The files in this directory are optimized and ready for production deployment.
+
+---
+
+## 📦 **Code Scaffolding**
+
+To generate a new component, use the following command:
+
+```bash
+ng generate component component-name
+```
+
+You can also generate other elements like directives, pipes, services, guards, etc. Example:
+
+```bash
+ng generate directive|pipe|service|class|guard|interface|enum|module
+```
+
+This makes it easier to add new functionality to the application.
+
+---
+
+## 📚 **Further Help**
+
+For more details on Angular commands and options, use:
+
+```bash
+ng help
+```
+
+Or visit the official [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) for comprehensive documentation.

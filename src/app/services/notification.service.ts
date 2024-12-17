@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Injectable({ providedIn: 'root' })
 export class NotificationService {
@@ -8,7 +9,13 @@ export class NotificationService {
   >([]);
   notifications$ = this.notificationsSubject.asObservable();
 
-  constructor() {}
+  constructor(private router: Router) {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.clearNotifications();
+      }
+    });
+  }
 
   showSuccess(message: string) {
     this.addNotification('success', message);
@@ -25,7 +32,6 @@ export class NotificationService {
       { type, message },
     ]);
 
-    // Remove the notification after 3 seconds
     setTimeout(() => this.removeNotification({ type, message }), 4000);
   }
 
@@ -45,5 +51,9 @@ export class NotificationService {
     message: string;
   }) {
     this.removeNotification(notification);
+  }
+
+  private clearNotifications() {
+    this.notificationsSubject.next([]);
   }
 }
